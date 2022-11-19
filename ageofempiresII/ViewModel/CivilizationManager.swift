@@ -14,7 +14,9 @@ protocol CivilizationManagerDelegate {
 struct CivilizationManager {
     
     var delegate : CivilizationManagerDelegate?
-    
+   
+    var uniqueUnitManager = UniqueUnitManager()
+
     let url = "https://age-of-empires-2-api.herokuapp.com/api/v1/civilizations"
     
     
@@ -32,13 +34,8 @@ struct CivilizationManager {
                      if let safeData = data {
                          if let civilization = parseJSON(aoeData: safeData) {
                              
-                             print("civilizationdata: \(civilization)")
                              self.delegate?.didUpdateCivilization(civilization: civilization)
-                             //let pokemonVC = MainViewController()
-                             //pokemonVC.didUpdatePoke(pokemon: pokemon)
-                             
                          }
-
                      }
                  }
                  
@@ -57,9 +54,11 @@ struct CivilizationManager {
                     let army_type = decodedData.civilizations[0].army_type
                     let team_bonus = decodedData.civilizations[0].team_bonus
                     let civi_bonus = decodedData.civilizations[0].civilization_bonus
+                    let unique_unit = decodedData.civilizations[0].unique_unit[0]
+                                        
+                    let civilization = CivilizationModel(name: name, id: id, team_bonus: team_bonus, army_type: army_type, civilization_bonus: civi_bonus, unique_unit: unique_unit)
                     
                     
-                    let civilization = CivilizationModel(name: name, id: id, team_bonus: team_bonus, army_type: army_type, civilization_bonus: civi_bonus)
                     
                     return civilization
                      

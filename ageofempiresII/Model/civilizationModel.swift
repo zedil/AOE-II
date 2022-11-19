@@ -13,4 +13,5 @@ struct CivilizationModel {
     let team_bonus: String
     let army_type: String
     let civilization_bonus: [String]
+    let unique_unit: String
 }

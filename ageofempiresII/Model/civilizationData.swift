@@ -12,9 +12,20 @@ struct civilizationData: Codable {
 }
 
 struct Civilizations: Codable {
-    let name: String
     let id: Int
-    let team_bonus: String
+    let name: String
     let army_type: String
+    let team_bonus: String
+    let unique_unit: [String]
     let civilization_bonus: [String]
 }
+
+/*
+struct UniqueUnit: Codable {
+    let name: String
+    let description: String
+    let age: String
+    let attack: Int
+    let hit_points: Int
+    let build_time: Int
+} */

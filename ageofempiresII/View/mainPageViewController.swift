@@ -9,7 +9,10 @@ import UIKit
 
 class mainPageViewController: UIViewController, CivilizationManagerDelegate {
     
+    
     var civilizationManager = CivilizationManager()
+    
+    var unitSendUrl: String?
     
     private let infoView: UIView = {
        
@@ -97,6 +100,16 @@ class mainPageViewController: UIViewController, CivilizationManagerDelegate {
         
     }()
     
+    private let uniqueUnitButton: UIButton = {
+       
+        let button = UIButton()
+        button.setTitle("Unique Unit", for: .normal)
+        button.backgroundColor = .red
+        button.translatesAutoresizingMaskIntoConstraints = false
+        return button
+        
+    }()
+    
     
     
     override func viewDidLoad() {
@@ -116,9 +129,21 @@ class mainPageViewController: UIViewController, CivilizationManagerDelegate {
         infoView.addSubview(civilizationArmyTypeName)
         infoView.addSubview(civilizationArmyType)
         
+        view.addSubview(uniqueUnitButton)
+        
+        uniqueUnitButton.addTarget(self, action: #selector(buttonTapped), for: .touchUpInside)
         // Do any additional setup after loading the view.
         
         applyConstraint()
+    }
+    
+    @objc func buttonTapped() {
+        
+        let signUpViewController = uniqueUnitViewController()
+        signUpViewController.unitUrl = unitSendUrl
+        
+        present(signUpViewController, animated: true, completion: nil)
+        
     }
     
     func didUpdateCivilization(civilization: CivilizationModel) {
@@ -127,6 +152,8 @@ class mainPageViewController: UIViewController, CivilizationManagerDelegate {
             self.civilizationName.text = civilization.name
             self.civilizationTeamBonus.text = civilization.team_bonus
             self.civilizationArmyType.text = civilization.army_type
+            self.unitSendUrl = civilization.unique_unit
+            //self.uniqueUnitManager.sendRequest(url: civilization.unique_unit)
         }
     }
 
@@ -188,6 +215,13 @@ class mainPageViewController: UIViewController, CivilizationManagerDelegate {
         ]
         
         NSLayoutConstraint.activate(civilizationArmyTypeConst)
+        
+        let unitButtonConst = [
+            uniqueUnitButton.bottomAnchor.constraint(equalTo: view.bottomAnchor, constant: -50),
+            uniqueUnitButton.centerXAnchor.constraint(equalTo: infoView.centerXAnchor)
+        ]
+        
+        NSLayoutConstraint.activate(unitButtonConst)
         
     }
     

@@ -15,6 +15,11 @@
 		A093896B28D76C3E0089668B /* civilizationData.swift in Sources */ = {isa = PBXBuildFile; fileRef = A093896A28D76C3E0089668B /* civilizationData.swift */; };
 		A093896F28D778E50089668B /* civilizationModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A093896E28D778E50089668B /* civilizationModel.swift */; };
 		A093897128D77C670089668B /* CivilizationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = A093897028D77C670089668B /* CivilizationManager.swift */; };
+		A0C3B0442928F2E000E8AF8B /* UniqueUnitModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0C3B0432928F2E000E8AF8B /* UniqueUnitModel.swift */; };
+		A0C3B0462928F3FD00E8AF8B /* UniqueUnitData.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0C3B0452928F3FD00E8AF8B /* UniqueUnitData.swift */; };
+		A0C3B0482928FC5300E8AF8B /* UniqueUnitManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0C3B0472928FC5300E8AF8B /* UniqueUnitManager.swift */; };
+		A0C3B04A29290A4200E8AF8B /* uniqueUnitViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0C3B04929290A4200E8AF8B /* uniqueUnitViewController.swift */; };
+		A0C3B04C29290CE000E8AF8B /* Storyboards.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0C3B04B29290CE000E8AF8B /* Storyboards.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -28,6 +33,11 @@
 		A093896A28D76C3E0089668B /* civilizationData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = civilizationData.swift; sourceTree = "<group>"; };
 		A093896E28D778E50089668B /* civilizationModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = civilizationModel.swift; sourceTree = "<group>"; };
 		A093897028D77C670089668B /* CivilizationManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CivilizationManager.swift; sourceTree = "<group>"; };
+		A0C3B0432928F2E000E8AF8B /* UniqueUnitModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UniqueUnitModel.swift; sourceTree = "<group>"; };
+		A0C3B0452928F3FD00E8AF8B /* UniqueUnitData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UniqueUnitData.swift; sourceTree = "<group>"; };
+		A0C3B0472928FC5300E8AF8B /* UniqueUnitManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UniqueUnitManager.swift; sourceTree = "<group>"; };
+		A0C3B04929290A4200E8AF8B /* uniqueUnitViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = uniqueUnitViewController.swift; sourceTree = "<group>"; };
+		A0C3B04B29290CE000E8AF8B /* Storyboards.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Storyboards.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -60,6 +70,7 @@
 		A029CCC628D764A5000B2249 /* ageofempiresII */ = {
 			isa = PBXGroup;
 			children = (
+				A0C3B04B29290CE000E8AF8B /* Storyboards.swift */,
 				A093896528D76BDB0089668B /* Model */,
 				A093896928D76BFB0089668B /* ViewModel */,
 				A093896728D76BED0089668B /* View */,
@@ -77,6 +88,8 @@
 			children = (
 				A093896A28D76C3E0089668B /* civilizationData.swift */,
 				A093896E28D778E50089668B /* civilizationModel.swift */,
+				A0C3B0432928F2E000E8AF8B /* UniqueUnitModel.swift */,
+				A0C3B0452928F3FD00E8AF8B /* UniqueUnitData.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -85,6 +98,7 @@
 			isa = PBXGroup;
 			children = (
 				A029CCCB28D764A5000B2249 /* mainPageViewController.swift */,
+				A0C3B04929290A4200E8AF8B /* uniqueUnitViewController.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -93,6 +107,7 @@
 			isa = PBXGroup;
 			children = (
 				A093897028D77C670089668B /* CivilizationManager.swift */,
+				A0C3B0472928FC5300E8AF8B /* UniqueUnitManager.swift */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -167,10 +182,15 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A0C3B0462928F3FD00E8AF8B /* UniqueUnitData.swift in Sources */,
 				A093896B28D76C3E0089668B /* civilizationData.swift in Sources */,
 				A029CCCC28D764A5000B2249 /* mainPageViewController.swift in Sources */,
 				A029CCC828D764A5000B2249 /* AppDelegate.swift in Sources */,
+				A0C3B04C29290CE000E8AF8B /* Storyboards.swift in Sources */,
+				A0C3B0482928FC5300E8AF8B /* UniqueUnitManager.swift in Sources */,
+				A0C3B0442928F2E000E8AF8B /* UniqueUnitModel.swift in Sources */,
 				A093896F28D778E50089668B /* civilizationModel.swift in Sources */,
+				A0C3B04A29290A4200E8AF8B /* uniqueUnitViewController.swift in Sources */,
 				A093897128D77C670089668B /* CivilizationManager.swift in Sources */,
 				A029CCCA28D764A5000B2249 /* SceneDelegate.swift in Sources */,
 			);
