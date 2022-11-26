@@ -12,6 +12,8 @@
 		A029CCCC28D764A5000B2249 /* mainPageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A029CCCB28D764A5000B2249 /* mainPageViewController.swift */; };
 		A029CCD128D764A6000B2249 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A029CCD028D764A6000B2249 /* Assets.xcassets */; };
 		A029CCD428D764A6000B2249 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A029CCD228D764A6000B2249 /* LaunchScreen.storyboard */; };
+		A0371041292E15E100FF359C /* ItemCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0371040292E15E100FF359C /* ItemCell.swift */; };
+		A0371043292E1E9500FF359C /* Item.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0371042292E1E9500FF359C /* Item.swift */; };
 		A093896B28D76C3E0089668B /* civilizationData.swift in Sources */ = {isa = PBXBuildFile; fileRef = A093896A28D76C3E0089668B /* civilizationData.swift */; };
 		A093896F28D778E50089668B /* civilizationModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A093896E28D778E50089668B /* civilizationModel.swift */; };
 		A093897128D77C670089668B /* CivilizationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = A093897028D77C670089668B /* CivilizationManager.swift */; };
@@ -30,6 +32,8 @@
 		A029CCD028D764A6000B2249 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		A029CCD328D764A6000B2249 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		A029CCD528D764A6000B2249 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		A0371040292E15E100FF359C /* ItemCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemCell.swift; sourceTree = "<group>"; };
+		A0371042292E1E9500FF359C /* Item.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Item.swift; sourceTree = "<group>"; };
 		A093896A28D76C3E0089668B /* civilizationData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = civilizationData.swift; sourceTree = "<group>"; };
 		A093896E28D778E50089668B /* civilizationModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = civilizationModel.swift; sourceTree = "<group>"; };
 		A093897028D77C670089668B /* CivilizationManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CivilizationManager.swift; sourceTree = "<group>"; };
@@ -90,6 +94,7 @@
 				A093896E28D778E50089668B /* civilizationModel.swift */,
 				A0C3B0432928F2E000E8AF8B /* UniqueUnitModel.swift */,
 				A0C3B0452928F3FD00E8AF8B /* UniqueUnitData.swift */,
+				A0371042292E1E9500FF359C /* Item.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -99,6 +104,7 @@
 			children = (
 				A029CCCB28D764A5000B2249 /* mainPageViewController.swift */,
 				A0C3B04929290A4200E8AF8B /* uniqueUnitViewController.swift */,
+				A0371040292E15E100FF359C /* ItemCell.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -189,7 +195,9 @@
 				A0C3B04C29290CE000E8AF8B /* Storyboards.swift in Sources */,
 				A0C3B0482928FC5300E8AF8B /* UniqueUnitManager.swift in Sources */,
 				A0C3B0442928F2E000E8AF8B /* UniqueUnitModel.swift in Sources */,
+				A0371043292E1E9500FF359C /* Item.swift in Sources */,
 				A093896F28D778E50089668B /* civilizationModel.swift in Sources */,
+				A0371041292E15E100FF359C /* ItemCell.swift in Sources */,
 				A0C3B04A29290A4200E8AF8B /* uniqueUnitViewController.swift in Sources */,
 				A093897128D77C670089668B /* CivilizationManager.swift in Sources */,
 				A029CCCA28D764A5000B2249 /* SceneDelegate.swift in Sources */,

@@ -9,10 +9,28 @@ import UIKit
 
 class mainPageViewController: UIViewController, CivilizationManagerDelegate {
     
+    var items: [Item] = []
+    
+    var getCivi: CivilizationModel?
+    
     
     var civilizationManager = CivilizationManager()
     
     var unitSendUrl: String?
+    
+    private let collectionView: UICollectionView = {
+        let viewLayout = UICollectionViewFlowLayout()
+        viewLayout.scrollDirection = .horizontal
+        let collectionView = UICollectionView(frame: .zero, collectionViewLayout: viewLayout)
+        collectionView.translatesAutoresizingMaskIntoConstraints = false
+        collectionView.backgroundColor = .clear
+        return collectionView
+    }()
+    
+    private enum LayoutConstant {
+        static let spacing: CGFloat = 10
+        static let itemHeight: CGFloat = 80
+    }
     
     private let infoView: UIView = {
        
@@ -131,10 +149,41 @@ class mainPageViewController: UIViewController, CivilizationManagerDelegate {
         
         view.addSubview(uniqueUnitButton)
         
+        infoView.addSubview(collectionView)
+        collectionView.dataSource = self
+        collectionView.delegate = self
+        collectionView.register(ItemCell.self, forCellWithReuseIdentifier: ItemCell.identifier)
+        
+        
+        
         uniqueUnitButton.addTarget(self, action: #selector(buttonTapped), for: .touchUpInside)
         // Do any additional setup after loading the view.
         
         applyConstraint()
+    }
+    
+    private func getItems(model: CivilizationModel) {
+        
+        print("modelll: \(model)")
+        
+        
+        
+        items = [
+            Item(title: "Army TYPE", desc: model.army_type),
+            Item(title: "TEAM BONUS", desc: model.team_bonus),
+            Item(title: "CIVILIZATION BONUS", desc: model.civilization_bonus[0])
+        ]
+        
+        
+        
+    }
+    
+    init() {
+        super.init(nibName: nil, bundle: nil)
+    }
+
+    required init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
     }
     
     @objc func buttonTapped() {
@@ -154,7 +203,18 @@ class mainPageViewController: UIViewController, CivilizationManagerDelegate {
             self.civilizationArmyType.text = civilization.army_type
             self.unitSendUrl = civilization.unique_unit
             //self.uniqueUnitManager.sendRequest(url: civilization.unique_unit)
+            
+            let getCivi2 = CivilizationModel(name: civilization.name, id: civilization.id, team_bonus: civilization.team_bonus, army_type: civilization.army_type, civilization_bonus: civilization.civilization_bonus, unique_unit: "")
+            
+            self.getItems(model: getCivi2)
+            
+            self.collectionView.reloadData()
         }
+        
+        
+        
+
+   
     }
 
     
@@ -216,6 +276,15 @@ class mainPageViewController: UIViewController, CivilizationManagerDelegate {
         
         NSLayoutConstraint.activate(civilizationArmyTypeConst)
         
+        let collectionViewConst = [
+            collectionView.topAnchor.constraint(equalTo: civilizationArmyType.bottomAnchor, constant: 100),
+            collectionView.bottomAnchor.constraint(equalTo: infoView.bottomAnchor, constant: 0),
+            collectionView.leftAnchor.constraint(equalTo: infoView.leftAnchor),
+            collectionView.rightAnchor.constraint(equalTo: infoView.rightAnchor)
+        ]
+        
+        NSLayoutConstraint.activate(collectionViewConst)
+        
         let unitButtonConst = [
             uniqueUnitButton.bottomAnchor.constraint(equalTo: view.bottomAnchor, constant: -50),
             uniqueUnitButton.centerXAnchor.constraint(equalTo: infoView.centerXAnchor)
@@ -224,7 +293,52 @@ class mainPageViewController: UIViewController, CivilizationManagerDelegate {
         NSLayoutConstraint.activate(unitButtonConst)
         
     }
-    
+}
 
+extension mainPageViewController: UICollectionViewDataSource {
+    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+        return items.count
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: ItemCell.identifier, for: indexPath) as! ItemCell
+        
+        let item = items[indexPath.row]
+        cell.setup(with: item)
+        cell.contentView.backgroundColor = .darkGray
+        return cell
+    }
+}
+
+extension mainPageViewController: UICollectionViewDelegateFlowLayout {
+    
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
+
+        let width = itemWidth(for: view.frame.width, spacing: 0)
+
+        return CGSize(width: width, height: LayoutConstant.itemHeight)
+    }
+    
+    func itemWidth(for width: CGFloat, spacing: CGFloat) -> CGFloat {
+        let itemsInRow: CGFloat = 2
+
+        let totalSpacing: CGFloat = 2 * spacing + (itemsInRow - 1) * spacing
+        let finalWidth = (width - totalSpacing) / itemsInRow
+
+        return floor(finalWidth)
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, insetForSectionAt section: Int) -> UIEdgeInsets {
+        return UIEdgeInsets(top: LayoutConstant.spacing, left: LayoutConstant.spacing, bottom: LayoutConstant.spacing, right: LayoutConstant.spacing)
+    }
+
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumLineSpacingForSectionAt section: Int) -> CGFloat {
+        return LayoutConstant.spacing
+    }
+
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumInteritemSpacingForSectionAt section: Int) -> CGFloat {
+        return LayoutConstant.spacing
+    }
 }
 
